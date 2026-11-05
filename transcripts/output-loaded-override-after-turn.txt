@@ -1,0 +1,3 @@
+cold resume, no overrides                         readOnly
+same server, resume sandbox=workspace-write       readOnly
+fresh server, cold resume sandbox=workspace-write workspaceWrite

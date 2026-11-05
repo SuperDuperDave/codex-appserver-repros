@@ -1,0 +1,2 @@
+thread/start                   {'sandbox': {'type': 'readOnly', 'networkAccess': False}, 'approvalPolicy': 'on-request', 'approvalsReviewer': 'auto_review', 'reasoningEffort': 'high'}
+cold resume, no overrides      {'sandbox': {'type': 'readOnly', 'networkAccess': False}, 'approvalPolicy': 'on-request', 'approvalsReviewer': 'auto_review', 'reasoningEffort': 'high'}
