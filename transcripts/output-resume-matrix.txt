@@ -1,0 +1,8 @@
++(none)                           sandbox=readOnly effort=None
++cwd                              sandbox=readOnly effort=None
++model                            sandbox=readOnly effort=high
++approvalsReviewer                sandbox=readOnly effort=high
++cwd,model                        sandbox=readOnly effort=high
++cwd,approvalsReviewer            sandbox=readOnly effort=high
++model,approvalsReviewer          sandbox=readOnly effort=high
++cwd,model,approvalsReviewer      sandbox=readOnly effort=high
