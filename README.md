@@ -29,8 +29,11 @@ In one server process, `thread/resume` with an explicit `sandbox` on a thread th
 ### 4. `clientUserMessageId` does not deduplicate `turn/start`
 Two identical `turn/start` calls (same thread, same `clientUserMessageId`, same text) produce two completed turns; `thread/turns/list` shows both `userMessage` items with the same `clientId` and distinct item ids. Filed as [openai/codex#59727](https://github.com/openai/codex/issues/59727). Client-side workaround: list turns and look for the `clientId` before any retry.
 
+### 5. `thread/read` omits the sandbox and approval fields; `turn/start` on an unloaded thread answers "thread not found"
+On a thread that completed one turn and is no longer loaded, `thread/read` returns `{readState, thread}`; `thread` carries `model` and `reasoningEffort` but no `sandbox`, `approvalPolicy` or `approvalsReviewer` (the `thread/start` and `thread/resume` responses do). `turn/start` on the same thread without a prior `thread/resume` fails with `thread not found: <id>` even though `thread/read` just found it ([transcripts/output-turn-start-unloaded.txt](transcripts/output-turn-start-unloaded.txt), `repro/turn_start_unloaded.py`). Proposals for both are filed as feature requests.
+
 ## Files
-- `repro/codex_appserver_repro.py`: `resume-drift` and `dedupe`. `repro/resume_after_turn.py` and `repro/loaded_override_after_turn.py`: the controls with a completed turn (one tiny model turn each).
+- `repro/codex_appserver_repro.py`: `resume-drift` and `dedupe`. `repro/resume_after_turn.py` and `repro/loaded_override_after_turn.py`: the controls with a completed turn (one tiny model turn each). `repro/turn_start_unloaded.py`: finding 5 (one tiny model turn).
 - `transcripts/`: script output, the resume matrix, and a trimmed JSON-RPC transcript of an explicit-profile cold resume followed by a deliberate replay (only `thread/start`, `thread/resume`, `turn/start`, `thread/turns/list`; paths generalised).
 
 ## Scope

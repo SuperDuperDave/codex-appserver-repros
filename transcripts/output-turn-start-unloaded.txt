@@ -1,0 +1,3 @@
+thread/read keys: ['readState', 'thread'] | thread keys: ['agentNickname', 'agentRole', 'canAcceptDirectInput', 'cliVersion', 'createdAt', 'cwd', 'daybreakEnabled', 'environments', 'ephemeral', 'extra', 'forkedFromId', 'gitInfo', 'historyMode', 'id', 'model', 'modelProvider', 'name', 'originator', 'parentThreadId', 'path', 'preview', 'projectId', 'reasoningEffort', 'recencyAt', 'section', 'sectionEnteredAt', 'sessionId', 'source', 'status', 'threadSource', 'turns', 'updatedAt']
+thread/read has sandbox/approval fields: False
+turn/start on UNLOADED thread, no resume: {"error": {"code": -32600, "message": "thread not found: 01a1ada4-a1bc-7a23-a799-812f29381442"}, "id": 3}
