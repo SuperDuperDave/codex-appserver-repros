@@ -1,6 +1,6 @@
 # codex-appserver-repros
 
-Minimal, protocol-level reproductions of `codex app-server` behaviour, with transcripts. One script, no desktop app, no config edits; it talks stdio JSON-RPC to a local `codex app-server`.
+Minimal, protocol-level reproductions of `codex app-server` behavior, with transcripts. One script, no desktop app, no config edits; it talks stdio JSON-RPC to a local `codex app-server`.
 
 Measured on **codex-cli 0.165.0**, Linux (WSL2), 2026-11-05. Re-run on a newer version and tell us what changed.
 
